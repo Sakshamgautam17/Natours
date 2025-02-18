@@ -67,10 +67,10 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('save', function (next) {
-  console.log('Password Changed At before save:', this.passwordChangedAt);
+  // console.log('Password Changed At before save:', this.passwordChangedAt);
   // Ensure `passwordChangedAt` is not undefined
   if (!this.passwordChangedAt) {
-    console.log('passwordChangedAt is not set in the input.');
+    // console.log('passwordChangedAt is not set in the input.');
     this.passwordChangedAt = new Date();
   }
   next();
@@ -110,7 +110,7 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
       this.passwordChangedAt.getTime() / 1000,
       10,
     );
-    console.log(changedTimestamp, JWTTimestamp);
+    // console.log(changedTimestamp, JWTTimestamp);
     return JWTTimestamp < changedTimestamp;
   }
   return false;
@@ -124,7 +124,7 @@ userSchema.methods.createPasswordResetToken = function () {
     .digest('hex');
 
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
-  console.log({ resetToken }, this.passwordResetToken);
+  // console.log({ resetToken }, this.passwordResetToken);
   return resetToken;
 };
 

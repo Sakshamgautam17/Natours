@@ -63,8 +63,8 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
   });
 });
 exports.updateMe = catchAsync(async (req, res, next) => {
-  console.log(req.file);
-  console.log(req.body);
+  // console.log(req.file);
+  // console.log(req.body);
   //check if user is posting password
   if (req.body.password || req.body.passwordConfirm) {
     return next(
@@ -99,7 +99,7 @@ exports.getMe = (req, res, next) => {
   next();
 };
 exports.deleteMe = catchAsync(async (req, res, next) => {
-  console.log(req.user.id); // Log the id received in the request
+  // console.log(req.user.id); // Log the id received in the request
 
   const updatedUser = await User.findByIdAndUpdate(
     req.user.id,

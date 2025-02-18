@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const rateLimit = require('express-rate-limit');
+const compression = require('compression');
 const globalErrorHandler = require('./controllers/errorConstroller.js');
 const tourRouter = require('./routes/tourRoutes.js');
 const userRouter = require('./routes/userRoutes.js');
@@ -18,7 +19,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const viewRouter = require('./routes/viewRoutes.js');
 //MIDDLEWARES
-//check 
+//check
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -37,6 +38,7 @@ app.use(
     },
   }),
 );
+app.use(compression());
 app.use(cors());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));

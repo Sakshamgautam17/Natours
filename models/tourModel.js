@@ -162,7 +162,7 @@ tourSchema.pre(/^find/, function (next) {
 });
 //middlware over the mongoose, runs after pre middlewares/hooks
 tourSchema.post(/^find/, function (docs, next) {
-  console.log(` Query took ${Date.now() - this.start} milliseconds!`);
+  // console.log(` Query took ${Date.now() - this.start} milliseconds!`);
   next();
 });
 //aggregation middleware
