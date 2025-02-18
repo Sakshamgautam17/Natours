@@ -23,6 +23,7 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "deasync": "^0.1.30",
     "dotenv": "^16.4.5",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-node": "^11.1.0",

@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { showAlert } from './alerts';
+import {showAlert} from './alerts';
 export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: '/api/v1/users/login',
+      url: 'http://localhost:6969/api/v1/users/login',
       data: {
         email,
         password,
@@ -24,7 +24,7 @@ export const login = async (email, password) => {
     } else if (err.request) {
       showAlert('error', 'No response from server. Please check your network.');
     } else {
-      showAlert('An error occurred: ' + err.message);
+      showAlert( 'An error occurred: ' + err.message);
     }
   }
 };
@@ -33,11 +33,11 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: '/api/v1/users/logout',
+      url: 'http://localhost:6969/api/v1/users/logout',
       withCredentials: true,
     });
     if (res.data.status === 'success') location.reload(true);
   } catch (err) {
     showAlert('error', 'Error logging out! Try again.');
   }
-};
+}
