@@ -45,12 +45,12 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Your CORS configuration
-const corsOptions = {
-  origin: 'http://localhost:6969',
-  credentials: true, // Enable cookies to be sent with the request
-};
+// const corsOptions = {
+//   origin: 'http://localhost:6969',
+//   credentials: true, // Enable cookies to be sent with the request
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
   res.setHeader(
