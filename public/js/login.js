@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {showAlert} from './alerts';
+import { showAlert } from './alerts';
 export const login = async (email, password) => {
   try {
     const res = await axios({
@@ -24,7 +24,7 @@ export const login = async (email, password) => {
     } else if (err.request) {
       showAlert('error', 'No response from server. Please check your network.');
     } else {
-      showAlert( 'An error occurred: ' + err.message);
+      showAlert('An error occurred: ' + err.message);
     }
   }
 };
@@ -40,4 +40,4 @@ export const logout = async () => {
   } catch (err) {
     showAlert('error', 'Error logging out! Try again.');
   }
-}
+};
